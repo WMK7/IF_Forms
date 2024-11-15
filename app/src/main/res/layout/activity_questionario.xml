@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="20"
+        android:layout_marginEnd="20dp"
         android:text="aafaadf aew fadh hefo hfoh hufohfohoh hivgao ihgvoaihgvhhgoieh hgoeihoeihfoiaehfoiahoiahoihoihaoiehoihaaih giahgfoaeihfgvoi hahfvgihfaiohfoaihfi jhoasrihfoiarhf       fhja" />
 
     <LinearLayout
