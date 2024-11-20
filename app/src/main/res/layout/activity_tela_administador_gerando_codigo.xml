@@ -41,15 +41,13 @@
             android:textStyle="bold"
             android:layout_marginStart="15dp"/>
 
-        <TextView
-            android:id="@+id/textViewNomeSala"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="271dp"
+            android:layout_height="19dp"
             android:layout_marginTop="80dp"
-            android:text="Aqui Nome da sala: precisa ser um lista"
-            android:textColor="@color/black"
-            android:textStyle="bold"/>
+            android:layout_marginStart="10dp"
+           android:layout_marginEnd="20dp" />
+
     </LinearLayout>
 
     <LinearLayout

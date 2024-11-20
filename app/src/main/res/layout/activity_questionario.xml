@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Questionario">
 
     <ImageView
@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,26 +20,29 @@
         app:srcCompat="@drawable/voltar" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/txtTitulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Tangibilidade"
         android:textColor="@color/AzulBotao"
         android:textSize="24dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtTextoQuestionario"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.5" />
 
 
     <TextView
         android:id="@+id/textView99"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="20dp"
         android:text="Questão"
         android:textColor="@color/AzulBotao"
         android:textSize="24dp"
@@ -48,35 +50,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTextoQuestionario" />
+
 
     <TextView
-        android:id="@+id/textView98"
+        android:id="@+id/txtwNumeroQuestionario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_weight="1"
         android:text="1"
         android:textColor="@color/AzulBotao"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toEndOf="@+id/textView99"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTextoQuestionario" />
+
+    +
 
     <TextView
-        android:id="@+id/textView19"
-        android:layout_width="match_parent"
+        android:id="@+id/txtTextoQuestionario"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="aafaadf aew fadh hefo hfoh hufohfohoh hivgao ihgvoaihgvhhgoieh hgoeihoeihfoiaehfoiahoiahoihoihaoiehoihaaih giahgfoaeihfgvoi hahfvgihfaiohfoaihfi jhoasrihfoiarhf       fhja"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Quanto ao curso Técnico em Secretariado integrado ao nível médio do campus Rondonópolis "
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView99"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView98" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -84,26 +93,29 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView19">
+        app:layout_constraintTop_toBottomOf="@+id/textView99">
+
 
         <TextView
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="20dp"
-            android:text="Expectativa!"
+            android:text="Qual era sua Expectativa!"
             android:textColor="@color/AzulBotao"
             android:textStyle="bold" />
+
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
-            android:text="Realidade"
+            android:text="Qual é a sua Realidade"
             android:textColor="@color/AzulBotao"
             android:textStyle="bold" />
     </LinearLayout>
@@ -124,62 +136,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+
         <RadioButton
-            android:id="@+id/radioButton13"
+            android:id="@+id/rd1Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton12"
+            android:id="@+id/rd2Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton11"
+            android:id="@+id/rd3Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton10"
+            android:id="@+id/rd4Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton9"
+            android:id="@+id/rd5Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton8"
+            android:id="@+id/rd6Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="6"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton21"
+            android:id="@+id/rd7Espec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="7"
             android:textColor="@color/black"
             android:textStyle="bold" />
     </RadioGroup>
+
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -189,56 +209,63 @@
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
+
         <RadioButton
-            android:id="@+id/radioButton22"
+            android:id="@+id/rd1Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="1"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton20"
+            android:id="@+id/rd2Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="2"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton19"
+            android:id="@+id/rd3Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="3"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton18"
+            android:id="@+id/rd4Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="4"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton15"
+            android:id="@+id/rd5Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton16"
+            android:id="@+id/rd6Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="6"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
+
         <RadioButton
-            android:id="@+id/radioButton17"
+            android:id="@+id/rd7Real"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="7"
@@ -247,7 +274,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btProximoQuestionario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
