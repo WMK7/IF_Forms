@@ -4,25 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.analisedesatisfacaoifforms.data_class.Resposta
 import com.example.analisedesatisfacaoifforms.databinding.ActivityQuestionarioBinding
-import com.example.analisedesatisfacaoifforms.databinding.ActivityTelaLoginBinding
+
 
 class Questionario : AppCompatActivity() {
+    private var respostas: MutableList<Resposta> = mutableListOf()
+
     private lateinit var binding: ActivityQuestionarioBinding
-    private lateinit var textoQuetao: TextView
-    private lateinit var textoNumero: TextView
-    private lateinit var botaoProximo: Button
 
     private val questoes = arrayOf(
         //Tangibilidade 0
-       //1
+        //1
         "Quanto ao curso Técnico em Secretariado integrado ao nível médio do campus Rondonópolis " +
                 "deveria ter equipamentos modernos para o uso dos alunos. ",
         //2
@@ -38,16 +33,14 @@ class Questionario : AppCompatActivity() {
         "Quanto ao corpo docente aparenta ser suficiente e adequado para atuarem no curso Técnico " +
                 "em Secretariado integrado ao nível médio do IFMT campus Rondonópolis.",
 
-
         //Confiabilidade 6
-
         //6
-       "Quando a instituição (Ensino, pesquisa, extensão e gestão) promete fazer algo em " +
+        "Quando a instituição (Ensino, pesquisa, extensão e gestão) promete fazer algo em " +
                 "certo tempo, deveriam fazê-lo.",
-       //7
+        //7
         "Quando os discentes têm algum problema com a Instituição (Ensino, pesquisa, extensão" +
                 " e gestão) o IFMT campus Rondonópolis deveria ser solidário e deixá-los seguros.",
-       //8
+        //8
         "Quanto a Instituição (Ensino, pesquisa, extensão e a gestão) deveria ser de confiança.",
         //9
         "Quanto aInstituição (Ensino, pesquisa, extensão e a gestão) deveria fornecer o serviço" +
@@ -55,9 +48,7 @@ class Questionario : AppCompatActivity() {
         //10
         "Quanto a Instituição (Ensino, pesquisa, extensão e a gestão) deveria ser confiável.",
 
-
         //Responsabilidade 11
-
         //11
         "É de se esperar que a instituição informasse aos discentes exatamente quando os " +
                 "procedimentos administrativos e pedagógicos fossem executados.",
@@ -99,19 +90,18 @@ class Questionario : AppCompatActivity() {
                 "dos discentes.",
         //23
         "É de se esperar que o horário de atendimento fosse conveniente para todos os discentes.",
+    )
 
-
-        )
     private var indiceQuestao = arrayOf(
-        "1","2","3","4","5",
-        "6","7","8","9","10",
-        "11","12","13","14",
-        "15","16","17","18",
-        "19","20","21","22",
+        "1", "2", "3", "4", "5",
+        "6", "7", "8", "9", "10",
+        "11", "12", "13", "14",
+        "15", "16", "17", "18",
+        "19", "20", "21", "22",
         "23"
     )
-    private var currentQuestionIndex = 0
 
+    private var currentQuestionIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -119,27 +109,56 @@ class Questionario : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btProximoQuestionario.setOnClickListener {
-            if (currentQuestionIndex < questoes.size-1) {
-                currentQuestionIndex++
-                binding.txtTextoQuestionario.text = questoes[currentQuestionIndex]
-                binding.txtwNumeroQuestionario.text = indiceQuestao[currentQuestionIndex]
-                atualizarTitulo()
-
-            }else{
-                val intent = Intent(this, TelaApresentaca::class.java)
-                startActivity(intent)
-                Handler(Looper.getMainLooper()).postDelayed({
-                    finish()},3000)
-                binding.btProximoQuestionario.isEnabled = false
-                finish()
-            }
+            avancarQuestionario()
         }
+
         binding.txtTextoQuestionario.text = questoes[currentQuestionIndex]
         binding.txtwNumeroQuestionario.text = indiceQuestao[currentQuestionIndex]
         atualizarTitulo()
     }
-    private fun atualizarTitulo(){
-        when(currentQuestionIndex){
+
+    private fun avancarQuestionario() {
+        if (currentQuestionIndex < questoes.size - 1) {
+            val radioButtonRealCheckedId = binding.radioGroupReal.getCheckedRadioButtonId();
+            val radioButtonEspecCheckedId = binding.radioGroupEspec.getCheckedRadioButtonId();
+
+            if (radioButtonRealCheckedId > -1 && radioButtonEspecCheckedId > -1) {
+                val selectedRadioButtonReal = findViewById<RadioButton>(radioButtonRealCheckedId)
+                val selectedRadioButtonEspec = findViewById<RadioButton>(radioButtonEspecCheckedId)
+
+                val selectedTextReal = selectedRadioButtonReal.text.toString()
+                val selectedTextEspec = selectedRadioButtonEspec.text.toString()
+
+                respostas.add(
+                    Resposta(
+                        currentQuestionIndex,
+                        selectedTextReal.toInt(),
+                        selectedTextEspec.toInt()
+                    )
+                );
+
+                currentQuestionIndex++
+                binding.txtTextoQuestionario.text = questoes[currentQuestionIndex]
+                binding.txtwNumeroQuestionario.text = indiceQuestao[currentQuestionIndex]
+
+                binding.radioGroupReal.clearCheck()
+                binding.radioGroupEspec.clearCheck()
+
+                atualizarTitulo()
+            }
+        } else {
+            val intent = Intent(this, TelaApresentaca::class.java)
+            startActivity(intent)
+            Handler(Looper.getMainLooper()).postDelayed({
+                finish()
+            }, 3000)
+            binding.btProximoQuestionario.isEnabled = false
+            finish()
+        }
+    }
+
+    private fun atualizarTitulo() {
+        when (currentQuestionIndex) {
             in 0..4 -> binding.txtTitulo.text = "Tangibilidade"
             in 5..9 -> binding.txtTitulo.text = "Confiabilidade"
             in 10..13 -> binding.txtTitulo.text = "Responsabilidade"
