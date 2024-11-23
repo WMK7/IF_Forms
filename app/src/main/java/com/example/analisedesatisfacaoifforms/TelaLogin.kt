@@ -18,29 +18,41 @@ class TelaLogin : AppCompatActivity() {
 
         val email = findViewById<EditText>(R.id.editTextEmailLogin)
         val senha = findViewById<EditText>(R.id.editTextSenhaLogin)
-        val especEmail = "mk@gmail.com"
-        val especSenha = "123456"
 
 
+        // texto não tenho conta retorna para tela de criar conta
         binding.voltarLogin.setOnClickListener {
             val intent = Intent(this, TelaCriarContaMainActivity::class.java)
             startActivity(intent)
         }
+
+        //textView retorna para tela de criar conta
         binding.textViewSemConta.setOnClickListener {
             val intent = Intent(this, TelaCriarContaMainActivity::class.java)
             startActivity(intent)
         }
+
+        //botao entrar direciona para proxima tela
         binding.btEntrarLogin.setOnClickListener {
 
-            if(email.text.toString() == especEmail && senha.text.toString() == especSenha){
-                val intent = Intent(this, Questionario::class.java)
-                startActivity(intent)
-            }else{
-                Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+            val email = binding.editTextEmailLogin.text.toString()
+            val senha = binding.editTextSenhaLogin.text.toString()
+
+            when {
+                email == "mk@gmail.com" && senha == "123456" -> {
+                    val intent = Intent(this, TelaSalaCoferencia::class.java)
+                    startActivity(intent)
+                }
+                email == "admin" && senha == "123456" -> {
+                    val intent = Intent(this, GerenciarSalas::class.java)
+                    startActivity(intent)
+                }
+                else -> {
+                    Toast.makeText(this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show()
+                }
             }
 
         }
 
-
-    }
-}
+    }//onCreat
+}//class

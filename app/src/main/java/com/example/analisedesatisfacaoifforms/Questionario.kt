@@ -107,6 +107,12 @@ class Questionario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityQuestionarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val voltar = binding.imageView3
+
+        voltar.setOnClickListener {
+            val intent = Intent(this, TelaSalaCoferencia::class.java)
+            startActivity(intent)
+        }
 
         binding.btProximoQuestionario.setOnClickListener {
             avancarQuestionario()

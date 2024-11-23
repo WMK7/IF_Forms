@@ -31,6 +31,7 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="16dp"
         android:text="Bem vindo ao IF Forms"
         android:textColor="@color/AzulBotao"
         android:textStyle="bold"
@@ -91,6 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="16dp"
             android:text="Concordo com os termos"
             android:textColor="@color/black"
             android:textStyle="bold"/>
@@ -102,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Esqueci a Senha"
+            android:textSize="16dp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -131,6 +134,7 @@
             android:layout_marginEnd="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
             android:text="Não Tenha Conta"
             android:textColor="@color/black"
             android:textStyle="bold"/>
