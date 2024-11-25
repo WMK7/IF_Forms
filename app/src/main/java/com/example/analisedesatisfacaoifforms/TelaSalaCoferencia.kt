@@ -30,27 +30,27 @@ class TelaSalaCoferencia : AppCompatActivity() {
         }
 
         sala1A.setOnClickListener {
-            val intent = Intent(this, Questionario::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
         sala1B.setOnClickListener {
-            val intent = Intent(this, Questionario::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
         sala2A.setOnClickListener {
-            val intent = Intent(this, Questionario::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
         sala2B.setOnClickListener {
-            val intent = Intent(this, Questionario::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
         sala3.setOnClickListener {
-            val intent = Intent(this, Questionario::class.java)
+            val intent = Intent(this, SplashScreen::class.java)
             startActivity(intent)
         }
 
